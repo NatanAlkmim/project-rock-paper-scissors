@@ -7,14 +7,12 @@ function getComputerChoice() {
 
     return computerChoice[random];
 }
-console.log(getComputerChoice());
 
 function getHumanChoice() {
     const userInput = prompt("Choose rock, paper or scissors");
   
     return userInput;
 }
-console.log(getHumanChoice());
 
 function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice.toLowerCase();
@@ -42,17 +40,14 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
-
 function playGame() {
     humanScore = 0;
     computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
         playRound(getHumanChoice(), getComputerChoice());
+        alert("Scoreboard:\n" + "Human " + humanScore + " x " + computerScore + " Computer");
+
         console.log("Score after round " + (i + 1) + ": Human " + humanScore + ", Computer " + computerScore);
     }
 
@@ -60,12 +55,11 @@ function playGame() {
 
     if (humanScore > computerScore) {
         alert("You won the game!\nScoreboard\nHuman " + humanScore + " x " + computerScore + " Computer");
-    } else if (computerScore < humanScore) {
+    } else if (computerScore > humanScore) {
         alert("You lost the game!\nScoreboard\nHuman " + humanScore + " x " + computerScore + " Computer");
     } else {
         alert("The game is a tie!\nScoreboard\nHuman " + humanScore + " x " + computerScore + " Computer")
     }
 }
-
 
 playGame()
